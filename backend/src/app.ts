@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import { rateLimit } from 'express-rate-limit';
 import pinoHttp from 'pino-http';
+const httpLogger = (pinoHttp as unknown as typeof pinoHttp.default) ?? pinoHttp;
 import { logger } from './config/logger.js';
 import { env } from './config/env.js';
 import { router } from './routes/index.js';
@@ -19,7 +20,7 @@ app.use(cors({ origin: env.FRONTEND_URL, methods: ['GET', 'POST', 'PATCH'] }));
 app.use(rateLimit({ windowMs: 60_000, max: 100 }));
 
 // Logging
-app.use(pinoHttp({ logger }));
+app.use(httpLogger({ logger }));
 
 // Body parsing
 app.use(express.json());
