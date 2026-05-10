@@ -1,13 +1,65 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+model Branch {
+  id           String   @id @default(uuid())
+  name         String   @unique @db.VarChar(100)
+  location     String   @db.VarChar(255)
+  address      String?  @db.VarChar(255)
+  city         String   @db.VarChar(100)
+  province     String   @db.VarChar(100)
+  openingTime  String   @map("opening_time") // stored as "HH:mm"
+  closingTime  String   @map("closing_time") // stored as "HH:mm"
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  slots        TimeSlot[]
+  imageUrl     String?  @map("image_url") @db.VarChar(500)
+  bookings     Booking[]
+
+  @@map("branches")
+}
+
+model TimeSlot {
+  id        String   @id @default(uuid())
+  branchId  String   @map("branch_id")
+  slotDate  DateTime @map("slot_date") @db.Date
+  startTime String   @map("start_time") // stored as "HH:mm"
+  endTime   String   @map("end_time")   // stored as "HH:mm"
+  isBooked  Boolean  @default(false) @map("is_booked")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  branch    Branch   @relation(fields: [branchId], references: [id])
+  booking   Booking?
+
+  @@unique([branchId, slotDate, startTime])
+  @@index([branchId, slotDate])
+  @@map("time_slots")
+}
+
+model Booking {
+  id               String   @id @default(uuid())
+  bookingReference String   @unique @map("booking_reference") @db.VarChar(20)
+  branchId         String   @map("branch_id")
+  slotId           String   @unique @map("slot_id")
+  customerName     String   @map("customer_name") @db.VarChar(100)
+  customerEmail    String   @map("customer_email") @db.VarChar(255)
+  customerPhone    String   @map("customer_phone") @db.VarChar(20)
+  status           String   @default("CONFIRMED") @db.VarChar(20)
+  notes            String?  @db.Text
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  branch   Branch   @relation(fields: [branchId], references: [id])
+  slot     TimeSlot @relation(fields: [slotId], references: [id])
+
+  @@index([bookingReference])
+  @@map("bookings")
 }
