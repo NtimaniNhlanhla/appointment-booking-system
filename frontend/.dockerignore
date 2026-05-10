@@ -8,6 +8,5 @@ coverage
 .git
 .gitignore
 README.md
-vite.config.ts
 *.test.tsx
 *.test.ts
