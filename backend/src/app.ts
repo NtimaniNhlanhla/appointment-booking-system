@@ -5,7 +5,7 @@ import { rateLimit } from 'express-rate-limit';
 import pinoHttp from 'pino-http';
 import { logger } from './config/logger.js';
 import { env } from './config/env.js';
-//import { router } from './routes.js';
+import { router } from './routes/index.js';
 import { errorMiddleware } from './middleware/error.middleware.js';
 import { notFoundMiddleware } from './middleware/notFound.middleware.js';
 
@@ -25,7 +25,7 @@ app.use(pinoHttp({ logger }));
 app.use(express.json());
 
 // Routes
-//app.use('/api', router);
+ app.use('/api', router);
 
 // Error handlers (must be last)
 app.use(notFoundMiddleware);
