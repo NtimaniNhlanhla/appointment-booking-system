@@ -10,3 +10,4 @@ coverage
 README.md
 nodemon.json
 jest.config.ts
+jest.config.cjs
