@@ -18,6 +18,12 @@
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+
+    /* Path aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
