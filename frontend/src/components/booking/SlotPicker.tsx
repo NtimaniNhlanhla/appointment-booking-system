@@ -58,7 +58,7 @@ export function SlotPicker({ slots, selectedSlot, onSelect, isLoading = false }:
           Selected
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-sm bg-gray-100 inline-block" />
+          <span className="w-3 h-3 rounded-sm bg-gray-100 border border-gray-300 inline-block" />
           Booked
         </span>
       </div>

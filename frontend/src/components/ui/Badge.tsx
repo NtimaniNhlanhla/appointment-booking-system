@@ -2,6 +2,7 @@ interface BadgeProps {
   label: string;
   variant?: 'success' | 'warning' | 'neutral' | 'primary';
   dot?: boolean;
+  className?: string;
 }
 
 const variantClasses = {
@@ -18,9 +19,9 @@ const dotColours = {
   primary: 'bg-primary',
 };
 
-export function Badge({ label, variant = 'neutral', dot = false }: BadgeProps) {
+export function Badge({ label, variant = 'neutral', dot = false, className = '' }: BadgeProps) {
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-sm px-2 py-0.5 text-xs font-medium ${variantClasses[variant]}`}>
+    <span className={`inline-flex items-center gap-1.5 rounded-sm px-2 py-0.5 text-xs font-medium ${variantClasses[variant]} ${className}`}>
       {dot && <span className={`w-1.5 h-1.5 rounded-full ${dotColours[variant]}`} />}
       {label}
     </span>

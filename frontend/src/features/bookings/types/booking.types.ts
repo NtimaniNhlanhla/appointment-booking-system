@@ -22,6 +22,7 @@ export interface Booking {
   bookingReference: string;
   customerName: string;
   customerEmail: string;
+  customerPhone: string;
   status: 'CONFIRMED' | 'CANCELLED';
   notes?: string;
   slot: {
