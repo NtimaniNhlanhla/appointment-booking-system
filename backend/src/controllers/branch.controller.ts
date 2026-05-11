@@ -6,8 +6,20 @@ export const branchController = {
   getAll: async (req: Request, res: Response, next: NextFunction) => {
     try {
       const search = typeof req.query.search === 'string' ? req.query.search : undefined;
-      const branches = await branchService.getAllBranches(search);
-      sendSuccess(res, branches);
+      const page = parseInt(req.query.page as string) || 1;
+      const limit = Math.min(parseInt(req.query.limit as string) || 9, 50); // cap at 50
+      const result = await branchService.getAllBranches(search, page, limit);
+      res.status(200).json({
+        message: 'Success',
+        data: result.data,
+        pagination: {
+          page: result.page,
+          limit: result.limit,
+          total: result.total,
+          totalPages: result.totalPages,
+          hasNextPage: result.page < result.totalPages,
+        },
+      });
     } catch (err) {
       next(err);
     }

@@ -2,8 +2,8 @@ import { branchRepository } from '../repositories/branch.repository.js';
 import { ApiError } from '../utils/ApiError.js';
 
 export const branchService = {
-  getAllBranches: async (search?: string) => {
-    return branchRepository.findAll(search);
+  getAllBranches: async (search?: string, page = 1, limit = 9) => {
+    return branchRepository.findAll(search, page, limit);
   },
 
   getBranchById: async (id: string) => {
