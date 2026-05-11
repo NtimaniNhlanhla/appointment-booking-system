@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Sandton Branch",
+    "location": "Sandton City Mall",
+    "address": "Shop 123, Sandton City, 83 Rivonia Rd",
+    "city": "Johannesburg",
+    "province": "Gauteng",
+    "openingTime": "08:00",
+    "closingTime": "17:00",
+    "imageUrl": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80"
+  },
+  {
+    "name": "Rosebank Branch",
+    "location": "The Zone @ Rosebank",
+    "address": "Shop 34, The Zone, Oxford Road",
+    "city": "Johannesburg",
+    "province": "Gauteng",
+    "openingTime": "08:00",
+    "closingTime": "17:00",
+    "imageUrl": "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400&q=80"
+  },
+  {
+    "name": "Pretoria Branch",
+    "location": "Menlyn Maine",
+    "address": "Shop 12, Menlyn Maine, Cnr Atterbury & Lois Ave",
+    "city": "Pretoria",
+    "province": "Gauteng",
+    "openingTime": "08:00",
+    "closingTime": "17:00",
+    "imageUrl": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80"
+  },
+  {
+    "name": "Midrand Branch",
+    "location": "Mall of Africa",
+    "address": "Shop 67, Mall of Africa, Lone Creek Crescent",
+    "city": "Johannesburg",
+    "province": "Gauteng",
+    "openingTime": "09:00",
+    "closingTime": "17:00",
+    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80"
+  },
+  {
+    "name": "Cape Town Branch",
+    "location": "V&A Waterfront",
+    "address": "Shop 45, V&A Waterfront",
+    "city": "Cape Town",
+    "province": "Western Cape",
+    "openingTime": "08:00",
+    "closingTime": "17:00",
+    "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
+  }
+]

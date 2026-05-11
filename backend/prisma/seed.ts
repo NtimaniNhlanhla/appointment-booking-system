@@ -1,63 +1,33 @@
 import 'dotenv/config';
+import { readFile } from 'fs/promises';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { PrismaClient } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 const prisma = new PrismaClient({ adapter });
 
-// ─── Branch data ────────────────────────────────────────────
-const branches = [
-  {
-    name: 'Sandton Branch',
-    location: 'Sandton City Mall',
-    address: 'Shop 123, Sandton City, 83 Rivonia Rd',
-    city: 'Johannesburg',
-    province: 'Gauteng',
-    openingTime: '08:00',
-    closingTime: '17:00',
-    imageUrl: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80',
-  },
-  {
-    name: 'Rosebank Branch',
-    location: 'The Zone @ Rosebank',
-    address: 'Shop 34, The Zone, Oxford Road',
-    city: 'Johannesburg',
-    province: 'Gauteng',
-    openingTime: '08:00',
-    closingTime: '17:00',
-    imageUrl: 'https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400&q=80',
-  },
-  {
-    name: 'Pretoria Branch',
-    location: 'Menlyn Maine',
-    address: 'Shop 12, Menlyn Maine, Cnr Atterbury & Lois Ave',
-    city: 'Pretoria',
-    province: 'Gauteng',
-    openingTime: '08:00',
-    closingTime: '17:00',
-    imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80',
-  },
-  {
-    name: 'Midrand Branch',
-    location: 'Mall of Africa',
-    address: 'Shop 67, Mall of Africa, Lone Creek Crescent',
-    city: 'Johannesburg',
-    province: 'Gauteng',
-    openingTime: '09:00',
-    closingTime: '17:00',
-    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80',
-  },
-  {
-    name: 'Cape Town Branch',
-    location: 'V&A Waterfront',
-    address: 'Shop 45, V&A Waterfront',
-    city: 'Cape Town',
-    province: 'Western Cape',
-    openingTime: '08:00',
-    closingTime: '17:00',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
-  },
-];
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// ─── Branch data ─────────────────────────────────────────────
+// To add a new branch, edit prisma/data/branches.json — no TypeScript changes needed.
+interface BranchSeed {
+  name: string;
+  location: string;
+  address: string;
+  city: string;
+  province: string;
+  openingTime: string;
+  closingTime: string;
+  imageUrl?: string;
+}
+
+async function loadBranches(): Promise<BranchSeed[]> {
+  const filePath = resolve(__dirname, 'data', 'branches.json');
+  const raw = await readFile(filePath, 'utf-8');
+  return JSON.parse(raw) as BranchSeed[];
+}
 
 // ─── Slot generation ─────────────────────────────────────────
 interface SlotInput {
@@ -102,6 +72,9 @@ function getNext14Days(): Date[] {
 // ─── Main seed ───────────────────────────────────────────────
 async function main() {
   console.log('🌱 Seeding database...');
+
+  const branches = await loadBranches();
+  console.log(`  📋 Loaded ${branches.length} branches from prisma/data/branches.json`);
 
   for (const branchData of branches) {
     const branch = await prisma.branch.upsert({

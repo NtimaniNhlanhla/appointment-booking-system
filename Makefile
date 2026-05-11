@@ -1,4 +1,4 @@
-.PHONY: setup dev build seed test test-backend test-frontend clean reset
+.PHONY: setup dev docker docker-down build seed test test-backend test-frontend clean reset
 
 setup:
 	cp -n .env.example .env 2>/dev/null || true
@@ -14,6 +14,12 @@ dev:
 
 build:
 	docker compose build
+
+docker:
+	docker compose up --build
+
+docker-down:
+	docker compose down
 
 seed:
 	cd backend && npm run db:seed

@@ -10,6 +10,7 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:seed": "ts-node prisma/seed.ts",
+    "db:setup": "prisma migrate deploy && ts-node prisma/seed.ts",
     "db:reset": "prisma migrate reset --force",
     "test": "dotenv -e .env.test -- node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "dotenv -e .env.test -- node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
