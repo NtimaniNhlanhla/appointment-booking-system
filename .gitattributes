@@ -1,0 +1,6 @@
+# Force LF line endings for shell scripts on all platforms
+# Prevents Windows CRLF conversion from breaking Docker entrypoints
+*.sh text eol=lf
+
+# Default behaviour
+* text=auto
