@@ -93,6 +93,7 @@ export function BookingPage() {
               slots={slots}
               selectedSlot={selectedSlot}
               onSelect={setSelectedSlot}
+              date={selectedDate}
             />
           )}
           <Alert variant="info" message="Each appointment is 30 minutes" className="mt-4" />

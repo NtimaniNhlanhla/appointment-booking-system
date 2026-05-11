@@ -7,10 +7,15 @@ interface SlotPickerProps {
   slots: TimeSlot[];
   selectedSlot: TimeSlot | null;
   onSelect: (slot: TimeSlot) => void;
+  date: string; // "YYYY-MM-DD"
   isLoading?: boolean;
 }
 
-export function SlotPicker({ slots, selectedSlot, onSelect, isLoading = false }: SlotPickerProps) {
+function isPast(date: string, startTime: string): boolean {
+  return new Date(`${date}T${startTime}:00`) <= new Date();
+}
+
+export function SlotPicker({ slots, selectedSlot, onSelect, date, isLoading = false }: SlotPickerProps) {
   if (isLoading) {
     return (
       <div className="grid grid-cols-4 gap-3">
@@ -30,7 +35,7 @@ export function SlotPicker({ slots, selectedSlot, onSelect, isLoading = false }:
     );
   }
 
-  const available = slots.filter((s) => !s.isBooked).length;
+  const available = slots.filter((s) => !s.isBooked && !isPast(date, s.startTime)).length;
 
   return (
     <div className="flex flex-col gap-3">
@@ -43,6 +48,7 @@ export function SlotPicker({ slots, selectedSlot, onSelect, isLoading = false }:
             slot={slot}
             isSelected={selectedSlot?.id === slot.id}
             onSelect={onSelect}
+            date={date}
           />
         ))}
       </div>
@@ -59,7 +65,7 @@ export function SlotPicker({ slots, selectedSlot, onSelect, isLoading = false }:
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-3 h-3 rounded-sm bg-gray-100 border border-gray-300 inline-block" />
-          Booked
+          Booked / Past
         </span>
       </div>
     </div>
