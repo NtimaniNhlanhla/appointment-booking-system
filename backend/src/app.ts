@@ -23,7 +23,7 @@ app.use(rateLimit({ windowMs: 60_000, max: 100 }));
 app.use(httpLogger({ logger }));
 
 // Body parsing
-app.use(express.json());
+app.use(express.json({ limit: '10kb' }));
 
 // Routes
  app.use('/api', router);

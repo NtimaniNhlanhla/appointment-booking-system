@@ -13,6 +13,9 @@ export function errorMiddleware(
     return res.status(err.statusCode).json({ message: err.message, code: err.code });
   }
 
-  logger.error(err, 'Unhandled error');
+  logger.error(
+    { err, method: req.method, path: req.path, ip: req.ip, query: req.query },
+    'Unhandled error',
+  );
   return res.status(500).json({ message: 'Internal server error', code: 'INTERNAL_ERROR' });
 }
