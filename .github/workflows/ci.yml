@@ -38,12 +38,12 @@ jobs:
         run: npm audit --audit-level=high
 
       - name: Run CodeQL analysis
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@v4
         with:
           languages: javascript-typescript
 
       - name: Perform CodeQL analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v4
         with:
           category: '/language:javascript-typescript'
 
@@ -158,6 +158,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      security-events: write
 
     steps:
       - uses: actions/checkout@v4
@@ -213,6 +214,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Scan backend image for vulnerabilities
+        if: github.event_name == 'push'
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_BACKEND }}:latest
@@ -222,6 +224,7 @@ jobs:
           exit-code: '1'
 
       - name: Scan frontend image for vulnerabilities
+        if: github.event_name == 'push'
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_FRONTEND }}:latest
@@ -230,11 +233,19 @@ jobs:
           severity: CRITICAL,HIGH
           exit-code: '1'
 
-      - name: Upload Trivy scan results
-        if: always()
-        uses: github/codeql-action/upload-sarif@v3
+      - name: Upload backend Trivy scan results
+        if: github.event_name == 'push'
+        uses: github/codeql-action/upload-sarif@v4
         with:
-          sarif_file: '.'
+          sarif_file: trivy-backend.sarif
+          category: trivy-backend
+
+      - name: Upload frontend Trivy scan results
+        if: github.event_name == 'push'
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: trivy-frontend.sarif
+          category: trivy-frontend
 
   # ─── Deploy to Staging ────────────────────────────────────────────────────
   deploy-staging:
