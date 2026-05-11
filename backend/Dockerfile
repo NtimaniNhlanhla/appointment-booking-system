@@ -31,7 +31,8 @@ COPY prisma/data ./prisma/data
 COPY prisma ./prisma
 COPY prisma.config.ts ./
 COPY entrypoint.sh ./
-RUN chmod +x entrypoint.sh
+# Strip Windows CRLF line endings and make executable
+RUN sed -i 's/\r//' entrypoint.sh && chmod +x entrypoint.sh
 
 # Run as non-root for security
 RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001 -G nodejs
