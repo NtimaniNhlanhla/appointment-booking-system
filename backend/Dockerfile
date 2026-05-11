@@ -25,10 +25,6 @@ ENV NODE_ENV=production
 COPY package*.json ./
 RUN npm ci --omit=dev
 
-# Run as non-root for security
-RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001 -G nodejs
-USER nodejs
-
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY prisma/data ./prisma/data
@@ -36,6 +32,10 @@ COPY prisma ./prisma
 COPY prisma.config.ts ./
 COPY entrypoint.sh ./
 RUN chmod +x entrypoint.sh
+
+# Run as non-root for security
+RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001 -G nodejs
+USER nodejs
 
 EXPOSE 5000
 

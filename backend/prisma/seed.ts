@@ -24,7 +24,7 @@ interface BranchSeed {
 }
 
 async function loadBranches(): Promise<BranchSeed[]> {
-  const filePath = resolve(__dirname, 'data', 'branches.json');
+  const filePath = resolve(process.cwd(), 'prisma', 'data', 'branches.json');
   const raw = await readFile(filePath, 'utf-8');
   return JSON.parse(raw) as BranchSeed[];
 }
@@ -37,8 +37,8 @@ interface SlotInput {
 
 function generateSlots(openingTime: string, closingTime: string): SlotInput[] {
   const slots: SlotInput[] = [];
-  const [openH, openM] = openingTime.split(':').map(Number);
-  const [closeH, closeM] = closingTime.split(':').map(Number);
+  const [openH = 0, openM = 0] = openingTime.split(':').map(Number);
+  const [closeH = 0, closeM = 0] = closingTime.split(':').map(Number);
 
   let current = openH * 60 + openM;
   const end = closeH * 60 + closeM;
