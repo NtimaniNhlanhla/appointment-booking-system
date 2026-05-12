@@ -5,11 +5,46 @@ on:
   pull_request:
 
 jobs:
-  ci:
-    name: Lint · Test · Build · Docker
+  # ── Job 1: Lint ────────────────────────────────────────────────────────────
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
 
-    # PostgreSQL service required for backend integration tests
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci --ignore-scripts
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      # Prisma client must exist before tsc runs (backend lint uses tsc --noEmit)
+      - name: Generate Prisma client
+        working-directory: backend
+        run: npx prisma generate
+
+      - name: Lint frontend
+        working-directory: frontend
+        run: npm run lint
+
+      - name: Lint backend
+        working-directory: backend
+        run: npm run lint
+
+  # ── Job 2: Test · Build · Docker ──────────────────────────────────────────
+  test-build-docker:
+    name: Test · Build · Docker
+    runs-on: ubuntu-latest
+    needs: lint
+
     services:
       postgres:
         image: postgres:15-alpine
@@ -26,46 +61,31 @@ jobs:
           --health-retries 5
 
     steps:
-      # 1. Checkout
       - uses: actions/checkout@v4
 
-      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # 3. Install frontend dependencies
       - name: Install frontend dependencies
         working-directory: frontend
         run: npm ci --ignore-scripts
 
-      # 4. Install backend dependencies
       - name: Install backend dependencies
         working-directory: backend
         run: npm ci
 
-      # 4a. Generate Prisma client (must run before any tsc invocation)
       - name: Generate Prisma client
         working-directory: backend
         run: npx prisma generate
 
-      # 5. Lint frontend
-      - name: Lint frontend
-        working-directory: frontend
-        run: npm run lint
+      # ── Tests ───────────────────────────────────────────────────────────
 
-      # 6. Lint backend
-      - name: Lint backend
-        working-directory: backend
-        run: npm run lint
-
-      # 7. Test frontend
       - name: Test frontend
         working-directory: frontend
         run: npm test
 
-      # 8. Test backend (requires Prisma setup + postgres service)
       - name: Run database migrations
         working-directory: backend
         env:
@@ -81,19 +101,20 @@ jobs:
           FRONTEND_URL: http://localhost:5173
         run: npm test
 
-      # 9. Build frontend
+      # ── Builds ──────────────────────────────────────────────────────────
+
       - name: Build frontend
         working-directory: frontend
         env:
           VITE_API_URL: /api
         run: npm run build
 
-      # 10. Build backend
       - name: Build backend
         working-directory: backend
         run: npm run build
 
-      # 11. Build Docker images
+      # ── Docker ──────────────────────────────────────────────────────────
+
       - name: Build frontend Docker image
         run: docker build -t appointment-frontend ./frontend
 
