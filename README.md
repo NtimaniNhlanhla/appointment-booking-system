@@ -115,6 +115,8 @@ This starts:
 - Backend API at **http://localhost:5000**
 - Frontend at **http://localhost:5173**
 
+> **Note:** Docker uses different ports to avoid conflicts with local dev — see the [Docker](#docker) section.
+
 ---
 
 ### Docker
@@ -133,9 +135,9 @@ make docker
 
 | Service | URL |
 |---|---|
-| Frontend | http://localhost:80 |
-| Backend API | http://localhost:5000/api |
-| PostgreSQL | localhost:5432 |
+| Frontend | http://localhost:8080 |
+| Backend API | http://localhost:5001/api |
+| PostgreSQL | localhost:5433 |
 
 **Stop all services:**
 
@@ -236,9 +238,11 @@ All endpoints are prefixed with `/api`.
 
 **Query parameters for `GET /api/branches`:**
 
-| Parameter | Type | Description |
-|---|---|---|
-| `search` | string | Filter by name or city (case-insensitive) |
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `search` | string | — | Filter by name or city (case-insensitive) |
+| `page` | number | `1` | Page number for pagination |
+| `limit` | number | `9` | Results per page (max 50) |
 
 **Response `200`:**
 ```json
@@ -256,7 +260,14 @@ All endpoints are prefixed with `/api`.
       "closingTime": "17:00",
       "isActive": true
     }
-  ]
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 9,
+    "total": 5,
+    "totalPages": 1,
+    "hasNextPage": false
+  }
 }
 ```
 
@@ -430,19 +441,17 @@ appointment-booking-system/
 
 ## CI/CD
 
-The GitHub Actions pipeline ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs on every push to `main`/`develop` and on pull requests to `main`.
+The GitHub Actions pipeline ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs on every push and on every pull request.
 
 ```
-security ──┐
-backend  ──┤──► docker (build + push + scan) ──► deploy-staging   (develop)
-frontend ──┘                                └──► deploy-production (main)
+lint ──► test ──► build ──► docker
 ```
 
 | Job | What it does |
 |---|---|
-| `security` | `npm audit` on both packages + CodeQL SAST analysis |
-| `backend` | Runs tests + coverage against a real PostgreSQL service container |
-| `frontend` | Runs tests + coverage + TypeScript check + Vite build |
-| `docker` | Builds and pushes images to GitHub Container Registry; scans with Trivy for CVEs |
-| `deploy-staging` | SSHs into staging server and runs `docker compose pull && up` (develop branch only) |
-| `deploy-production` | Same for production server (main branch only, with environment approval) |
+| `lint` | ESLint on frontend, `tsc --noEmit` on backend |
+| `test` | Frontend (Vitest) + backend (Jest + Supertest) against a real PostgreSQL service container |
+| `build` | Vite production build (frontend) + `tsc` compile (backend) |
+| `docker` | Builds Docker images for frontend and backend to verify Dockerfiles are valid |
+
+Each job runs only if the previous one passes — a lint failure will not waste runner minutes on tests.

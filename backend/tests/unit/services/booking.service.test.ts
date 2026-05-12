@@ -75,7 +75,7 @@ const validInput = {
 
 beforeEach(() => {
   jest.clearAllMocks();
-  mockSendConfirmation.mockResolvedValue(undefined);
+  mockSendConfirmation.mockResolvedValue(void 0);
 });
 
 describe('bookingService.create', () => {
