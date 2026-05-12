@@ -42,7 +42,6 @@ describe('BranchCard', () => {
 
   it('navigates to /book/:branchId on button click', async () => {
     const user = userEvent.setup();
-    let navigatedTo = '';
 
     render(
       <MemoryRouter
