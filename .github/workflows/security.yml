@@ -1,0 +1,119 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Security — Continuous Security Scanning
+#
+# Intentionally decoupled from CI/CD so findings don't block deployments
+# and scans run on a schedule independent of code changes.
+#
+# Triggers:
+#   • Weekly on Monday at 02:00 UTC (catches new CVEs in unchanged code)
+#   • Every push to main (ensures the production branch is always clean)
+#   • Manual via GitHub Actions UI (on-demand audits)
+#
+# Jobs:
+#   codeql            — static analysis for security vulnerabilities in source
+#   dependency-audit  — npm audit on backend and frontend packages
+#   container-scan    — Trivy scan of the latest published Docker images
+# ─────────────────────────────────────────────────────────────────────────────
+name: Security
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'   # Every Monday at 02:00 UTC
+  push:
+    branches: [main]
+  workflow_dispatch:       # Allow manual runs from the GitHub Actions UI
+
+jobs:
+  # ─── CodeQL Static Analysis ───────────────────────────────────────────────
+  codeql:
+    name: CodeQL
+    runs-on: ubuntu-latest
+
+    permissions:
+      security-events: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: javascript-typescript
+          # Extend with security-and-quality queries for deeper analysis
+          queries: security-and-quality
+
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: /language:javascript-typescript
+
+  # ─── Dependency Vulnerability Audit ──────────────────────────────────────
+  dependency-audit:
+    name: Dependency Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Audit backend dependencies
+        working-directory: backend
+        # --audit-level=high: fail only on high/critical, not moderate/low
+        run: npm audit --audit-level=high
+
+      - name: Audit frontend dependencies
+        working-directory: frontend
+        run: npm audit --audit-level=high
+
+  # ─── Container Image Scan ────────────────────────────────────────────────
+  # Scans the :latest images published to GHCR.
+  # Results are uploaded to the GitHub Security tab.
+  # continue-on-error: true because GHCR images may not exist yet on a fresh
+  # repo — the scan is advisory, not a hard gate.
+  container-scan:
+    name: Container Scan
+    runs-on: ubuntu-latest
+
+    permissions:
+      security-events: write
+
+    steps:
+      - name: Scan backend image
+        id: scan-backend
+        uses: aquasecurity/trivy-action@0.30.0
+        continue-on-error: true
+        with:
+          image-ref: ghcr.io/${{ github.repository }}/appointments-backend:latest
+          format: sarif
+          output: trivy-backend.sarif
+          severity: CRITICAL,HIGH
+          exit-code: '0'
+
+      - name: Scan frontend image
+        id: scan-frontend
+        uses: aquasecurity/trivy-action@0.30.0
+        continue-on-error: true
+        with:
+          image-ref: ghcr.io/${{ github.repository }}/appointments-frontend:latest
+          format: sarif
+          output: trivy-frontend.sarif
+          severity: CRITICAL,HIGH
+          exit-code: '0'
+
+      - name: Upload backend scan results
+        if: always() && steps.scan-backend.outcome != 'skipped'
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: trivy-backend.sarif
+          category: trivy-backend
+
+      - name: Upload frontend scan results
+        if: always() && steps.scan-frontend.outcome != 'skipped'
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: trivy-frontend.sarif
+          category: trivy-frontend

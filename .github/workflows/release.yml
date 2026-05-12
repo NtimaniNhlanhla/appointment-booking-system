@@ -1,0 +1,170 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Release — Build, Push & Deploy
+#
+# Triggered automatically AFTER the CI workflow succeeds on main or develop.
+# Never runs on pull requests or feature branches — only on merged code.
+#
+# Flow:
+#   CI passes  →  build images  →  push to GHCR  →  scan for CVEs
+#                                       ↓                  ↓
+#                              deploy-staging        deploy-production
+#                              (develop branch)       (main branch)
+#                              auto-deploys      requires manual approval
+#                                                (configure in GitHub
+#                                                 Environments settings)
+#
+# Image tagging strategy:
+#   sha-<7-char-commit>  — immutable, used by deploy jobs
+#   develop / main       — mutable branch pointer
+#   latest               — only on main
+# ─────────────────────────────────────────────────────────────────────────────
+name: Release
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main, develop]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_BACKEND: ${{ github.repository }}/appointments-backend
+  IMAGE_FRONTEND: ${{ github.repository }}/appointments-frontend
+
+jobs:
+  # ─── Build & Push Docker Images ───────────────────────────────────────────
+  build:
+    name: Build & Push Images
+    runs-on: ubuntu-latest
+    # Only run when CI passed — skip on failures, cancellations, etc.
+    if: github.event.workflow_run.conclusion == 'success'
+
+    permissions:
+      contents: read
+      packages: write
+      security-events: write
+
+    outputs:
+      image_tag: ${{ steps.tag.outputs.value }}
+      branch: ${{ steps.tag.outputs.branch }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Checkout the exact commit that triggered CI, not the runner HEAD
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Compute image tag
+        id: tag
+        run: |
+          SHORT_SHA=$(echo "${{ github.event.workflow_run.head_sha }}" | cut -c1-7)
+          BRANCH="${{ github.event.workflow_run.head_branch }}"
+          echo "value=sha-${SHORT_SHA}" >> "$GITHUB_OUTPUT"
+          echo "branch=${BRANCH}"       >> "$GITHUB_OUTPUT"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── Backend ─────────────────────────────────────────────────────────
+
+      - name: Build & push backend
+        id: build-backend
+        uses: docker/build-push-action@v6
+        with:
+          context: ./backend
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_BACKEND }}:${{ steps.tag.outputs.value }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_BACKEND }}:${{ steps.tag.outputs.branch }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_BACKEND }}:latest
+          # latest tag is always written here; the deploy job picks the SHA tag
+          labels: |
+            org.opencontainers.image.revision=${{ github.event.workflow_run.head_sha }}
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # ── Frontend ────────────────────────────────────────────────────────
+
+      - name: Build & push frontend
+        id: build-frontend
+        uses: docker/build-push-action@v6
+        with:
+          context: ./frontend
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_FRONTEND }}:${{ steps.tag.outputs.value }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_FRONTEND }}:${{ steps.tag.outputs.branch }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_FRONTEND }}:latest
+          labels: |
+            org.opencontainers.image.revision=${{ github.event.workflow_run.head_sha }}
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # ── Container Vulnerability Scan ───────────────────────────────────
+      # Results are uploaded to GitHub Security tab (advisory database)
+      # exit-code: 0 means findings are reported but never block the release.
+      # Raise to '1' once all existing CVEs are resolved.
+
+      - name: Scan backend image
+        uses: aquasecurity/trivy-action@0.30.0
+        with:
+          image-ref: ${{ steps.build-backend.outputs.imageid }}
+          format: sarif
+          output: trivy-backend.sarif
+          severity: CRITICAL,HIGH
+          exit-code: '0'
+
+      - name: Scan frontend image
+        uses: aquasecurity/trivy-action@0.30.0
+        with:
+          image-ref: ${{ steps.build-frontend.outputs.imageid }}
+          format: sarif
+          output: trivy-frontend.sarif
+          severity: CRITICAL,HIGH
+          exit-code: '0'
+
+      - name: Upload backend scan results
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: trivy-backend.sarif
+          category: trivy-backend
+
+      - name: Upload frontend scan results
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: trivy-frontend.sarif
+          category: trivy-frontend
+
+  # ─── Deploy to Staging ────────────────────────────────────────────────────
+  deploy-staging:
+    name: Deploy → Staging
+    needs: build
+    if: needs.build.outputs.branch == 'develop'
+    uses: ./.github/workflows/_deploy.yml
+    with:
+      environment: staging
+      image_tag: ${{ needs.build.outputs.image_tag }}
+    secrets: inherit
+
+  # ─── Deploy to Production ─────────────────────────────────────────────────
+  # Production deployments require a manual approval gate.
+  # Configure this in: Repository Settings → Environments → production
+  # → Required reviewers (add yourself or a team).
+  deploy-production:
+    name: Deploy → Production
+    needs: build
+    if: needs.build.outputs.branch == 'main'
+    uses: ./.github/workflows/_deploy.yml
+    with:
+      environment: production
+      image_tag: ${{ needs.build.outputs.image_tag }}
+    secrets: inherit
