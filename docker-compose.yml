@@ -1,4 +1,16 @@
 services:
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: appointments_mailpit
+    restart: unless-stopped
+    ports:
+      - '8025:8025'   # Web UI
+      - '1025:1025'   # SMTP
+    environment:
+      MP_MAX_MESSAGES: 500
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
   postgres:
     image: postgres:15-alpine
     container_name: appointments_db
@@ -29,11 +41,15 @@ services:
       DATABASE_URL: postgresql://postgres:password@postgres:5432/appointments
       FRONTEND_URL: http://localhost:8080
       NODE_ENV: production
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
     ports:
       - '5001:5000'
     depends_on:
       postgres:
         condition: service_healthy
+      mailpit:
+        condition: service_started
     healthcheck:
       test: ['CMD-SHELL', 'wget -qO- http://localhost:5000/api/health || exit 1']
       interval: 10s

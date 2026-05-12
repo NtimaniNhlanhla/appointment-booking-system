@@ -1,522 +1,522 @@
 [
-  {
-    "name": "Sandton Branch",
-    "location": "Sandton City Mall",
-    "address": "Shop 123, Sandton City, 83 Rivonia Rd",
-    "city": "Johannesburg",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80"
-  },
-  {
-    "name": "Rosebank Branch",
-    "location": "The Zone @ Rosebank",
-    "address": "Shop 34, The Zone, Oxford Road",
-    "city": "Johannesburg",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400&q=80"
-  },
-  {
-    "name": "Pretoria Branch",
-    "location": "Menlyn Maine",
-    "address": "Shop 12, Menlyn Maine, Cnr Atterbury & Lois Ave",
-    "city": "Pretoria",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80"
-  },
-  {
-    "name": "Cape Town City Branch",
-    "location": "Cape Town CBD",
-    "address": "15 Adderley Street, Cape Town CBD",
-    "city": "Cape Town",
-    "province": "Western Cape",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=400&q=80"
-  },
-  {
-    "name": "Durban Branch",
-    "location": "Gateway Theatre of Shopping",
-    "address": "Shop 201, 1 Palm Blvd, Umhlanga",
-    "city": "Durban",
-    "province": "KwaZulu-Natal",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&q=80"
-  },
-  {
-    "name": "Centurion Branch",
-    "location": "Centurion Mall",
-    "address": "Shop 45, Centurion Mall, Heuwel Ave",
-    "city": "Centurion",
-    "province": "Gauteng",
-    "openingTime": "08:30",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=400&q=80"
-  },
-  {
-    "name": "Waterfront Branch",
-    "location": "V&A Waterfront",
-    "address": "Shop 5, Victoria Wharf, V&A Waterfront",
-    "city": "Cape Town",
-    "province": "Western Cape",
-    "openingTime": "09:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1445294211564-3ca59d999abd?w=400&q=80"
-  },
-  {
-    "name": "Umhlanga Branch",
-    "location": "La Lucia Mall",
-    "address": "Shop 22, La Lucia Mall, William Campbell Dr",
-    "city": "Umhlanga",
-    "province": "KwaZulu-Natal",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&q=80"
-  },
-  {
-    "name": "Port Elizabeth Branch",
-    "location": "Greenacres Shopping Centre",
-    "address": "Shop 14, Greenacres, Cape Road",
-    "city": "Gqeberha",
-    "province": "Eastern Cape",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80"
-  },
-  {
-    "name": "Bloemfontein Branch",
-    "location": "Mimosa Mall",
-    "address": "Shop 67, Mimosa Mall, Kellner St",
-    "city": "Bloemfontein",
-    "province": "Free State",
-    "openingTime": "08:00",
-    "closingTime": "16:30",
-    "imageUrl": "https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?w=400&q=80"
-  },
-  {
-    "name": "Fourways Branch",
-    "location": "Fourways Mall",
-    "address": "Shop 89, Fourways Mall, Witkoppen Rd",
-    "city": "Johannesburg",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80"
-  },
-  {
-    "name": "Midrand Branch",
-    "location": "Mall of Africa",
-    "address": "Shop 110, Mall of Africa, Lone Creek Crescent",
-    "city": "Midrand",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1506057213367-028a17ec52e5?w=400&q=80"
-  },
-  {
-    "name": "Randburg Branch",
-    "location": "Cresta Shopping Centre",
-    "address": "Shop 33, Cresta, Cnr Beyers Naude & Weltevreden Rd",
-    "city": "Randburg",
-    "province": "Gauteng",
-    "openingTime": "08:30",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&q=80"
-  },
-  {
-    "name": "Soweto Branch",
-    "location": "Jabulani Mall",
-    "address": "Shop 7, Jabulani Mall, Khumalo St",
-    "city": "Soweto",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=400&q=80"
-  },
-  {
-    "name": "Roodepoort Branch",
-    "location": "Westgate Shopping Centre",
-    "address": "Shop 52, Westgate, Ontdekkers Rd",
-    "city": "Roodepoort",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&q=80"
-  },
-  {
-    "name": "Stellenbosch Branch",
-    "location": "Eikestad Mall",
-    "address": "Shop 19, Eikestad Mall, Bird St",
-    "city": "Stellenbosch",
-    "province": "Western Cape",
-    "openingTime": "08:30",
-    "closingTime": "16:30",
-    "imageUrl": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80"
-  },
-  {
-    "name": "George Branch",
-    "location": "Garden Route Mall",
-    "address": "Shop 28, Garden Route Mall, Cradock St",
-    "city": "George",
-    "province": "Western Cape",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1463694775763-e5f3bd17af79?w=400&q=80"
-  },
-  {
-    "name": "Paarl Branch",
-    "location": "Paarl Mall",
-    "address": "Shop 11, Paarl Mall, Jan van Riebeeck Dr",
-    "city": "Paarl",
-    "province": "Western Cape",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80"
-  },
-  {
-    "name": "East London Branch",
-    "location": "Hemingways Mall",
-    "address": "Shop 44, Hemingways Mall, Quenera Dr",
-    "city": "East London",
-    "province": "Eastern Cape",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=400&q=80"
-  },
-  {
-    "name": "Mthatha Branch",
-    "location": "Mthatha CBD",
-    "address": "12 Sutherland Street, Mthatha CBD",
-    "city": "Mthatha",
-    "province": "Eastern Cape",
-    "openingTime": "08:00",
-    "closingTime": "16:30",
-    "imageUrl": "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=400&q=80"
-  },
-  {
-    "name": "Pietermaritzburg Branch",
-    "location": "Liberty Midlands Mall",
-    "address": "Shop 63, Liberty Midlands Mall, Chattsworth Rd",
-    "city": "Pietermaritzburg",
-    "province": "KwaZulu-Natal",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1470723710355-95304d8aece4?w=400&q=80"
-  },
-  {
-    "name": "Richards Bay Branch",
-    "location": "Boardwalk Mall",
-    "address": "Shop 9, Boardwalk Mall, Hibberd Dr",
-    "city": "Richards Bay",
-    "province": "KwaZulu-Natal",
-    "openingTime": "08:30",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1473893604213-3df9c15611c0?w=400&q=80"
-  },
-  {
-    "name": "Nelspruit Branch",
-    "location": "Crossing Shopping Centre",
-    "address": "Shop 31, The Crossing, Madiba Dr",
-    "city": "Mbombela",
-    "province": "Mpumalanga",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=400&q=80"
-  },
-  {
-    "name": "Witbank Branch",
-    "location": "Highveld Mall",
-    "address": "Shop 17, Highveld Mall, Mandela St",
-    "city": "eMalahleni",
-    "province": "Mpumalanga",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=400&q=80"
-  },
-  {
-    "name": "Polokwane Branch",
-    "location": "Savannah Mall",
-    "address": "Shop 55, Savannah Mall, Grobler St",
-    "city": "Polokwane",
-    "province": "Limpopo",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=400&q=80"
-  },
-  {
-    "name": "Tzaneen Branch",
-    "location": "Tzaneen CBD",
-    "address": "8 Agatha Street, Tzaneen",
-    "city": "Tzaneen",
-    "province": "Limpopo",
-    "openingTime": "08:00",
-    "closingTime": "16:30",
-    "imageUrl": "https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?w=400&q=80"
-  },
-  {
-    "name": "Rustenburg Branch",
-    "location": "Waterfall Mall",
-    "address": "Shop 26, Waterfall Mall, Fatima Bhayat St",
-    "city": "Rustenburg",
-    "province": "North West",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1515263487990-61b07816dd00?w=400&q=80"
-  },
-  {
-    "name": "Klerksdorp Branch",
-    "location": "Orkney Square Mall",
-    "address": "Shop 8, Orkney Square, President St",
-    "city": "Klerksdorp",
-    "province": "North West",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=400&q=80"
-  },
-  {
-    "name": "Kimberley Branch",
-    "location": "Diamond Pavilion",
-    "address": "Shop 14, Diamond Pavilion, Phakamile Mabija Rd",
-    "city": "Kimberley",
-    "province": "Northern Cape",
-    "openingTime": "08:00",
-    "closingTime": "16:30",
-    "imageUrl": "https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=400&q=80"
-  },
-  {
-    "name": "Upington Branch",
-    "location": "Upington CBD",
-    "address": "25 Scott Street, Upington",
-    "city": "Upington",
-    "province": "Northern Cape",
-    "openingTime": "08:00",
-    "closingTime": "16:00",
-    "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
-  },
-  {
-    "name": "Welkom Branch",
-    "location": "Goldfields Mall",
-    "address": "Shop 20, Goldfields Mall, Stateway",
-    "city": "Welkom",
-    "province": "Free State",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=400&q=80"
-  },
-  {
-    "name": "Kroonstad Branch",
-    "location": "Kroonstad CBD",
-    "address": "3 Murray Street, Kroonstad",
-    "city": "Kroonstad",
-    "province": "Free State",
-    "openingTime": "08:00",
-    "closingTime": "16:30",
-    "imageUrl": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400&q=80"
-  },
-  {
-    "name": "Boksburg Branch",
-    "location": "East Rand Mall",
-    "address": "Shop 39, East Rand Mall, North Rand Rd",
-    "city": "Boksburg",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1507208773393-40d9fc670acf?w=400&q=80"
-  },
-  {
-    "name": "Benoni Branch",
-    "location": "Lakeside Mall",
-    "address": "Shop 15, Lakeside Mall, Tom Jones St",
-    "city": "Benoni",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=400&q=80"
-  },
-  {
-    "name": "Alberton Branch",
-    "location": "Alberton City",
-    "address": "Shop 6, Alberton City, New Redruth Ave",
-    "city": "Alberton",
-    "province": "Gauteng",
-    "openingTime": "08:30",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=400&q=80"
-  },
-  {
-    "name": "Germiston Branch",
-    "location": "Eastgate Shopping Centre",
-    "address": "Shop 71, Eastgate, Bradford Rd",
-    "city": "Germiston",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&q=80"
-  },
-  {
-    "name": "Springs Branch",
-    "location": "Springs Mall",
-    "address": "Shop 22, Springs Mall, John St",
-    "city": "Springs",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?w=400&q=80"
-  },
-  {
-    "name": "Tembisa Branch",
-    "location": "Tembisa CBD",
-    "address": "Shop 3, Oakmoor Centre, First Avenue",
-    "city": "Tembisa",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80"
-  },
-  {
-    "name": "Mamelodi Branch",
-    "location": "Mamelodi Mall",
-    "address": "Shop 12, Mamelodi Mall, Solomon Mahlangu Dr",
-    "city": "Pretoria",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1497366754035-f200968a5f72?w=400&q=80"
-  },
-  {
-    "name": "Soshanguve Branch",
-    "location": "Soshanguve Crossing",
-    "address": "Shop 5, Soshanguve Crossing, Block H",
-    "city": "Pretoria",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400&q=80"
-  },
-  {
-    "name": "Mitchells Plain Branch",
-    "location": "Promenade Mall",
-    "address": "Shop 18, Promenade Mall, AZ Berman Dr",
-    "city": "Cape Town",
-    "province": "Western Cape",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=400&q=80"
-  },
-  {
-    "name": "Bellville Branch",
-    "location": "Tyger Valley Centre",
-    "address": "Shop 47, Tyger Valley, Willie van Schoor Ave",
-    "city": "Bellville",
-    "province": "Western Cape",
-    "openingTime": "08:30",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1463694775763-e5f3bd17af79?w=400&q=80"
-  },
-  {
-    "name": "Somerset West Branch",
-    "location": "Somerset Mall",
-    "address": "Shop 29, Somerset Mall, N2 Highway",
-    "city": "Somerset West",
-    "province": "Western Cape",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80"
-  },
-  {
-    "name": "Khayelitsha Branch",
-    "location": "Khayelitsha Mall",
-    "address": "Shop 10, Khayelitsha Mall, Spine Rd",
-    "city": "Cape Town",
-    "province": "Western Cape",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=400&q=80"
-  },
-  {
-    "name": "Newcastle Branch",
-    "location": "Newcastle Mall",
-    "address": "Shop 33, Newcastle Mall, Allen St",
-    "city": "Newcastle",
-    "province": "KwaZulu-Natal",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80"
-  },
-  {
-    "name": "Empangeni Branch",
-    "location": "Empangeni Rail",
-    "address": "Shop 8, Empangeni Rail Centre, Commercial Rd",
-    "city": "Empangeni",
-    "province": "KwaZulu-Natal",
-    "openingTime": "08:00",
-    "closingTime": "16:30",
-    "imageUrl": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&q=80"
-  },
-  {
-    "name": "Pinetown Branch",
-    "location": "Pinecrest Centre",
-    "address": "Shop 24, Pinecrest Centre, Old Main Rd",
-    "city": "Pinetown",
-    "province": "KwaZulu-Natal",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&q=80"
-  },
-  {
-    "name": "Vereeniging Branch",
-    "location": "Vaal Mall",
-    "address": "Shop 41, Vaal Mall, Vereeniging Rd",
-    "city": "Vereeniging",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1506057213367-028a17ec52e5?w=400&q=80"
-  },
-  {
-    "name": "Vanderbijlpark Branch",
-    "location": "Riverside Mall",
-    "address": "Shop 16, Riverside Mall, Frikkie Meyer Blvd",
-    "city": "Vanderbijlpark",
-    "province": "Gauteng",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=400&q=80"
-  },
-  {
-    "name": "Witpoortjie Branch",
-    "location": "Clearwater Mall",
-    "address": "Shop 62, Clearwater Mall, Hendrik Potgieter Rd",
-    "city": "Roodepoort",
-    "province": "Gauteng",
-    "openingTime": "08:30",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80"
-  },
-  {
-    "name": "Midrand Branch",
-    "location": "Mall of Africa",
-    "address": "Shop 67, Mall of Africa, Lone Creek Crescent",
-    "city": "Johannesburg",
-    "province": "Gauteng",
-    "openingTime": "09:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80"
-  },
-  {
-    "name": "Cape Town Branch",
-    "location": "V&A Waterfront",
-    "address": "Shop 45, V&A Waterfront",
-    "city": "Cape Town",
-    "province": "Western Cape",
-    "openingTime": "08:00",
-    "closingTime": "17:00",
-    "imageUrl": "https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=400&q=80"
-  }
+    {
+        "name":  "Sandton Branch",
+        "location":  "Sandton City Mall",
+        "address":  "Shop 123, Sandton City, 83 Rivonia Rd",
+        "city":  "Johannesburg",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=400\u0026q=80"
+    },
+    {
+        "name":  "Rosebank Branch",
+        "location":  "The Zone @ Rosebank",
+        "address":  "Shop 34, The Zone, Oxford Road",
+        "city":  "Johannesburg",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400\u0026q=80"
+    },
+    {
+        "name":  "Pretoria Branch",
+        "location":  "Menlyn Maine",
+        "address":  "Shop 12, Menlyn Maine, Cnr Atterbury \u0026 Lois Ave",
+        "city":  "Pretoria",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400\u0026q=80"
+    },
+    {
+        "name":  "Cape Town City Branch",
+        "location":  "Cape Town CBD",
+        "address":  "15 Adderley Street, Cape Town CBD",
+        "city":  "Cape Town",
+        "province":  "Western Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400\u0026q=80"
+    },
+    {
+        "name":  "Durban Branch",
+        "location":  "Gateway Theatre of Shopping",
+        "address":  "Shop 201, 1 Palm Blvd, Umhlanga",
+        "city":  "Durban",
+        "province":  "KwaZulu-Natal",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=400\u0026q=80"
+    },
+    {
+        "name":  "Centurion Branch",
+        "location":  "Centurion Mall",
+        "address":  "Shop 45, Centurion Mall, Heuwel Ave",
+        "city":  "Centurion",
+        "province":  "Gauteng",
+        "openingTime":  "08:30",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=400\u0026q=80"
+    },
+    {
+        "name":  "Waterfront Branch",
+        "location":  "V\u0026A Waterfront",
+        "address":  "Shop 5, Victoria Wharf, V\u0026A Waterfront",
+        "city":  "Cape Town",
+        "province":  "Western Cape",
+        "openingTime":  "09:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=400\u0026q=80"
+    },
+    {
+        "name":  "Umhlanga Branch",
+        "location":  "La Lucia Mall",
+        "address":  "Shop 22, La Lucia Mall, William Campbell Dr",
+        "city":  "Umhlanga",
+        "province":  "KwaZulu-Natal",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400\u0026q=80"
+    },
+    {
+        "name":  "Port Elizabeth Branch",
+        "location":  "Greenacres Shopping Centre",
+        "address":  "Shop 14, Greenacres, Cape Road",
+        "city":  "Gqeberha",
+        "province":  "Eastern Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=400\u0026q=80"
+    },
+    {
+        "name":  "Bloemfontein Branch",
+        "location":  "Mimosa Mall",
+        "address":  "Shop 67, Mimosa Mall, Kellner St",
+        "city":  "Bloemfontein",
+        "province":  "Free State",
+        "openingTime":  "08:00",
+        "closingTime":  "16:30",
+        "imageUrl":  "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=400\u0026q=80"
+    },
+    {
+        "name":  "Fourways Branch",
+        "location":  "Fourways Mall",
+        "address":  "Shop 89, Fourways Mall, Witkoppen Rd",
+        "city":  "Johannesburg",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=400\u0026q=80"
+    },
+    {
+        "name":  "Midrand Branch",
+        "location":  "Mall of Africa",
+        "address":  "Shop 110, Mall of Africa, Lone Creek Crescent",
+        "city":  "Midrand",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400\u0026q=80"
+    },
+    {
+        "name":  "Randburg Branch",
+        "location":  "Cresta Shopping Centre",
+        "address":  "Shop 33, Cresta, Cnr Beyers Naude \u0026 Weltevreden Rd",
+        "city":  "Randburg",
+        "province":  "Gauteng",
+        "openingTime":  "08:30",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400\u0026q=80"
+    },
+    {
+        "name":  "Soweto Branch",
+        "location":  "Jabulani Mall",
+        "address":  "Shop 7, Jabulani Mall, Khumalo St",
+        "city":  "Soweto",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400\u0026q=80"
+    },
+    {
+        "name":  "Roodepoort Branch",
+        "location":  "Westgate Shopping Centre",
+        "address":  "Shop 52, Westgate, Ontdekkers Rd",
+        "city":  "Roodepoort",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=400\u0026q=80"
+    },
+    {
+        "name":  "Stellenbosch Branch",
+        "location":  "Eikestad Mall",
+        "address":  "Shop 19, Eikestad Mall, Bird St",
+        "city":  "Stellenbosch",
+        "province":  "Western Cape",
+        "openingTime":  "08:30",
+        "closingTime":  "16:30",
+        "imageUrl":  "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=400\u0026q=80"
+    },
+    {
+        "name":  "George Branch",
+        "location":  "Garden Route Mall",
+        "address":  "Shop 28, Garden Route Mall, Cradock St",
+        "city":  "George",
+        "province":  "Western Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=400\u0026q=80"
+    },
+    {
+        "name":  "Paarl Branch",
+        "location":  "Paarl Mall",
+        "address":  "Shop 11, Paarl Mall, Jan van Riebeeck Dr",
+        "city":  "Paarl",
+        "province":  "Western Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400\u0026q=80"
+    },
+    {
+        "name":  "East London Branch",
+        "location":  "Hemingways Mall",
+        "address":  "Shop 44, Hemingways Mall, Quenera Dr",
+        "city":  "East London",
+        "province":  "Eastern Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=400\u0026q=80"
+    },
+    {
+        "name":  "Mthatha Branch",
+        "location":  "Mthatha CBD",
+        "address":  "12 Sutherland Street, Mthatha CBD",
+        "city":  "Mthatha",
+        "province":  "Eastern Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "16:30",
+        "imageUrl":  "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=400\u0026q=80"
+    },
+    {
+        "name":  "Pietermaritzburg Branch",
+        "location":  "Liberty Midlands Mall",
+        "address":  "Shop 63, Liberty Midlands Mall, Chattsworth Rd",
+        "city":  "Pietermaritzburg",
+        "province":  "KwaZulu-Natal",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=400\u0026q=80"
+    },
+    {
+        "name":  "Richards Bay Branch",
+        "location":  "Boardwalk Mall",
+        "address":  "Shop 9, Boardwalk Mall, Hibberd Dr",
+        "city":  "Richards Bay",
+        "province":  "KwaZulu-Natal",
+        "openingTime":  "08:30",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400\u0026q=80"
+    },
+    {
+        "name":  "Nelspruit Branch",
+        "location":  "Crossing Shopping Centre",
+        "address":  "Shop 31, The Crossing, Madiba Dr",
+        "city":  "Mbombela",
+        "province":  "Mpumalanga",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400\u0026q=80"
+    },
+    {
+        "name":  "Witbank Branch",
+        "location":  "Highveld Mall",
+        "address":  "Shop 17, Highveld Mall, Mandela St",
+        "city":  "eMalahleni",
+        "province":  "Mpumalanga",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400\u0026q=80"
+    },
+    {
+        "name":  "Polokwane Branch",
+        "location":  "Savannah Mall",
+        "address":  "Shop 55, Savannah Mall, Grobler St",
+        "city":  "Polokwane",
+        "province":  "Limpopo",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=400\u0026q=80"
+    },
+    {
+        "name":  "Tzaneen Branch",
+        "location":  "Tzaneen CBD",
+        "address":  "8 Agatha Street, Tzaneen",
+        "city":  "Tzaneen",
+        "province":  "Limpopo",
+        "openingTime":  "08:00",
+        "closingTime":  "16:30",
+        "imageUrl":  "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=400\u0026q=80"
+    },
+    {
+        "name":  "Rustenburg Branch",
+        "location":  "Waterfall Mall",
+        "address":  "Shop 26, Waterfall Mall, Fatima Bhayat St",
+        "city":  "Rustenburg",
+        "province":  "North West",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=400\u0026q=80"
+    },
+    {
+        "name":  "Klerksdorp Branch",
+        "location":  "Orkney Square Mall",
+        "address":  "Shop 8, Orkney Square, President St",
+        "city":  "Klerksdorp",
+        "province":  "North West",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400\u0026q=80"
+    },
+    {
+        "name":  "Kimberley Branch",
+        "location":  "Diamond Pavilion",
+        "address":  "Shop 14, Diamond Pavilion, Phakamile Mabija Rd",
+        "city":  "Kimberley",
+        "province":  "Northern Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "16:30",
+        "imageUrl":  "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=400\u0026q=80"
+    },
+    {
+        "name":  "Upington Branch",
+        "location":  "Upington CBD",
+        "address":  "25 Scott Street, Upington",
+        "city":  "Upington",
+        "province":  "Northern Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "16:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=400\u0026q=80"
+    },
+    {
+        "name":  "Welkom Branch",
+        "location":  "Goldfields Mall",
+        "address":  "Shop 20, Goldfields Mall, Stateway",
+        "city":  "Welkom",
+        "province":  "Free State",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=400\u0026q=80"
+    },
+    {
+        "name":  "Kroonstad Branch",
+        "location":  "Kroonstad CBD",
+        "address":  "3 Murray Street, Kroonstad",
+        "city":  "Kroonstad",
+        "province":  "Free State",
+        "openingTime":  "08:00",
+        "closingTime":  "16:30",
+        "imageUrl":  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400\u0026q=80"
+    },
+    {
+        "name":  "Boksburg Branch",
+        "location":  "East Rand Mall",
+        "address":  "Shop 39, East Rand Mall, North Rand Rd",
+        "city":  "Boksburg",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400\u0026q=80"
+    },
+    {
+        "name":  "Benoni Branch",
+        "location":  "Lakeside Mall",
+        "address":  "Shop 15, Lakeside Mall, Tom Jones St",
+        "city":  "Benoni",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400\u0026q=80"
+    },
+    {
+        "name":  "Alberton Branch",
+        "location":  "Alberton City",
+        "address":  "Shop 6, Alberton City, New Redruth Ave",
+        "city":  "Alberton",
+        "province":  "Gauteng",
+        "openingTime":  "08:30",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=400\u0026q=80"
+    },
+    {
+        "name":  "Germiston Branch",
+        "location":  "Eastgate Shopping Centre",
+        "address":  "Shop 71, Eastgate, Bradford Rd",
+        "city":  "Germiston",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=400\u0026q=80"
+    },
+    {
+        "name":  "Springs Branch",
+        "location":  "Springs Mall",
+        "address":  "Shop 22, Springs Mall, John St",
+        "city":  "Springs",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=400\u0026q=80"
+    },
+    {
+        "name":  "Tembisa Branch",
+        "location":  "Tembisa CBD",
+        "address":  "Shop 3, Oakmoor Centre, First Avenue",
+        "city":  "Tembisa",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400\u0026q=80"
+    },
+    {
+        "name":  "Mamelodi Branch",
+        "location":  "Mamelodi Mall",
+        "address":  "Shop 12, Mamelodi Mall, Solomon Mahlangu Dr",
+        "city":  "Pretoria",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=400\u0026q=80"
+    },
+    {
+        "name":  "Soshanguve Branch",
+        "location":  "Soshanguve Crossing",
+        "address":  "Shop 5, Soshanguve Crossing, Block H",
+        "city":  "Pretoria",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=400\u0026q=80"
+    },
+    {
+        "name":  "Mitchells Plain Branch",
+        "location":  "Promenade Mall",
+        "address":  "Shop 18, Promenade Mall, AZ Berman Dr",
+        "city":  "Cape Town",
+        "province":  "Western Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=400\u0026q=80"
+    },
+    {
+        "name":  "Bellville Branch",
+        "location":  "Tyger Valley Centre",
+        "address":  "Shop 47, Tyger Valley, Willie van Schoor Ave",
+        "city":  "Bellville",
+        "province":  "Western Cape",
+        "openingTime":  "08:30",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400\u0026q=80"
+    },
+    {
+        "name":  "Somerset West Branch",
+        "location":  "Somerset Mall",
+        "address":  "Shop 29, Somerset Mall, N2 Highway",
+        "city":  "Somerset West",
+        "province":  "Western Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400\u0026q=80"
+    },
+    {
+        "name":  "Khayelitsha Branch",
+        "location":  "Khayelitsha Mall",
+        "address":  "Shop 10, Khayelitsha Mall, Spine Rd",
+        "city":  "Cape Town",
+        "province":  "Western Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400\u0026q=80"
+    },
+    {
+        "name":  "Newcastle Branch",
+        "location":  "Newcastle Mall",
+        "address":  "Shop 33, Newcastle Mall, Allen St",
+        "city":  "Newcastle",
+        "province":  "KwaZulu-Natal",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=400\u0026q=80"
+    },
+    {
+        "name":  "Empangeni Branch",
+        "location":  "Empangeni Rail",
+        "address":  "Shop 8, Empangeni Rail Centre, Commercial Rd",
+        "city":  "Empangeni",
+        "province":  "KwaZulu-Natal",
+        "openingTime":  "08:00",
+        "closingTime":  "16:30",
+        "imageUrl":  "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=400\u0026q=80"
+    },
+    {
+        "name":  "Pinetown Branch",
+        "location":  "Pinecrest Centre",
+        "address":  "Shop 24, Pinecrest Centre, Old Main Rd",
+        "city":  "Pinetown",
+        "province":  "KwaZulu-Natal",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=400\u0026q=80"
+    },
+    {
+        "name":  "Vereeniging Branch",
+        "location":  "Vaal Mall",
+        "address":  "Shop 41, Vaal Mall, Vereeniging Rd",
+        "city":  "Vereeniging",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400\u0026q=80"
+    },
+    {
+        "name":  "Vanderbijlpark Branch",
+        "location":  "Riverside Mall",
+        "address":  "Shop 16, Riverside Mall, Frikkie Meyer Blvd",
+        "city":  "Vanderbijlpark",
+        "province":  "Gauteng",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=400\u0026q=80"
+    },
+    {
+        "name":  "Witpoortjie Branch",
+        "location":  "Clearwater Mall",
+        "address":  "Shop 62, Clearwater Mall, Hendrik Potgieter Rd",
+        "city":  "Roodepoort",
+        "province":  "Gauteng",
+        "openingTime":  "08:30",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=400\u0026q=80"
+    },
+    {
+        "name":  "Midrand Branch",
+        "location":  "Mall of Africa",
+        "address":  "Shop 67, Mall of Africa, Lone Creek Crescent",
+        "city":  "Johannesburg",
+        "province":  "Gauteng",
+        "openingTime":  "09:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=400\u0026q=80"
+    },
+    {
+        "name":  "Cape Town Branch",
+        "location":  "V\u0026A Waterfront",
+        "address":  "Shop 45, V\u0026A Waterfront",
+        "city":  "Cape Town",
+        "province":  "Western Cape",
+        "openingTime":  "08:00",
+        "closingTime":  "17:00",
+        "imageUrl":  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400\u0026q=80"
+    }
 ]

@@ -138,6 +138,9 @@ make docker
 | Frontend | http://localhost:8080 |
 | Backend API | http://localhost:5001/api |
 | PostgreSQL | localhost:5433 |
+| Mailpit (email UI) | http://localhost:8025 |
+
+After booking an appointment, open **http://localhost:8025** to view the confirmation email in Mailpit's inbox — no real email is sent.
 
 **Stop all services:**
 
@@ -159,6 +162,8 @@ npm run docker:down
 | `PORT` | ❌ | `5000` | HTTP port the API listens on |
 | `NODE_ENV` | ❌ | `development` | `development` \| `production` \| `test` |
 | `FRONTEND_URL` | ❌ | `http://localhost:5173` | CORS allowed origin |
+| `SMTP_HOST` | ❌ | — | SMTP host for email (e.g. `localhost` for Mailpit) |
+| `SMTP_PORT` | ❌ | `1025` | SMTP port (Mailpit default: `1025`) |
 
 **Example:**
 ```env
@@ -166,6 +171,11 @@ DATABASE_URL=postgresql://postgres:password@localhost:5432/appointments
 PORT=5000
 NODE_ENV=development
 FRONTEND_URL=http://localhost:5173
+
+# Optional — point to a local Mailpit instance for email UI
+# docker run -d -p 8025:8025 -p 1025:1025 --name mailpit axllent/mailpit
+SMTP_HOST=localhost
+SMTP_PORT=1025
 ```
 
 ### Frontend (`frontend/.env`)
