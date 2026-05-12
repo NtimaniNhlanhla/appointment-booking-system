@@ -1,4 +1,3 @@
-// src/utils/generateReference.ts
 
 export function generateBookingReference(): string {
   const date = new Date();
