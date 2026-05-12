@@ -135,7 +135,7 @@ make docker
 
 | Service | URL |
 |---|---|
-| Frontend | http://localhost:8080 |
+| Frontend | http://localhost:3000 |
 | Backend API | http://localhost:5001/api |
 | PostgreSQL | localhost:5433 |
 | Mailpit (email UI) | http://localhost:8025 |
