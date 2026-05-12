@@ -15,7 +15,7 @@
     "test": "dotenv -e .env.test -- node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "dotenv -e .env.test -- node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
     "test:coverage": "dotenv -e .env.test -- node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
-    "lint": "eslint src --ext .ts",
+    "lint": "tsc --noEmit",
     "format": "prettier --write src"
   },
   "keywords": [],
