@@ -5,12 +5,9 @@ import type { TimeSlot } from '@/features/bookings/types/booking.types';
 
 const makeSlot = (overrides: Partial<TimeSlot> = {}): TimeSlot => ({
   id: 'slot-1',
-  branchId: 'branch-1',
-  slotDate: '2026-12-01',
   startTime: '08:00',
   endTime: '08:30',
   isBooked: false,
-  createdAt: new Date().toISOString(),
   ...overrides,
 });
 

@@ -13,8 +13,7 @@ const mockBranch: Branch = {
   province: 'Gauteng',
   openingTime: '08:00',
   closingTime: '17:00',
-  imageUrl: null,
-  createdAt: new Date().toISOString(),
+  imageUrl: undefined,
 };
 
 const renderCard = () =>
@@ -44,10 +43,7 @@ describe('BranchCard', () => {
     const user = userEvent.setup();
 
     render(
-      <MemoryRouter
-        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
-        initialEntries={['/']}
-      >
+      <MemoryRouter initialEntries={['/']}>
         <BranchCard branch={mockBranch} />
       </MemoryRouter>
     );
