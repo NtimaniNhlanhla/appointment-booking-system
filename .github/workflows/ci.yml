@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  # ── Job 1: Lint ────────────────────────────────────────────────────────────
+  # ── 1. Lint ────────────────────────────────────────────────────────────────
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
         working-directory: backend
         run: npm ci
 
-      # Prisma client must exist before tsc runs (backend lint uses tsc --noEmit)
+      # Prisma client must exist before tsc --noEmit runs
       - name: Generate Prisma client
         working-directory: backend
         run: npx prisma generate
@@ -39,9 +39,9 @@ jobs:
         working-directory: backend
         run: npm run lint
 
-  # ── Job 2: Test · Build · Docker ──────────────────────────────────────────
-  test-build-docker:
-    name: Test · Build · Docker
+  # ── 2. Test ────────────────────────────────────────────────────────────────
+  test:
+    name: Test
     runs-on: ubuntu-latest
     needs: lint
 
@@ -80,8 +80,6 @@ jobs:
         working-directory: backend
         run: npx prisma generate
 
-      # ── Tests ───────────────────────────────────────────────────────────
-
       - name: Test frontend
         working-directory: frontend
         run: npm test
@@ -101,7 +99,31 @@ jobs:
           FRONTEND_URL: http://localhost:5173
         run: npm test
 
-      # ── Builds ──────────────────────────────────────────────────────────
+  # ── 3. Build ───────────────────────────────────────────────────────────────
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci --ignore-scripts
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Generate Prisma client
+        working-directory: backend
+        run: npx prisma generate
 
       - name: Build frontend
         working-directory: frontend
@@ -113,7 +135,14 @@ jobs:
         working-directory: backend
         run: npm run build
 
-      # ── Docker ──────────────────────────────────────────────────────────
+  # ── 4. Docker ──────────────────────────────────────────────────────────────
+  docker:
+    name: Docker
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Build frontend Docker image
         run: docker build -t appointment-frontend ./frontend
