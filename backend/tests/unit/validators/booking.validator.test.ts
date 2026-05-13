@@ -32,4 +32,34 @@ describe('createBookingSchema', () => {
     const result = createBookingSchema.safeParse({ ...validInput, customerName: 'A' });
     expect(result.success).toBe(false);
   });
+
+  it('passes with international +27 cell number', () => {
+    const result = createBookingSchema.safeParse({ ...validInput, customerPhone: '+27821234567' });
+    expect(result.success).toBe(true);
+  });
+
+  it('passes with international 0027 cell number', () => {
+    const result = createBookingSchema.safeParse({ ...validInput, customerPhone: '0027821234567' });
+    expect(result.success).toBe(true);
+  });
+
+  it('fails when customerPhone contains letters', () => {
+    const result = createBookingSchema.safeParse({ ...validInput, customerPhone: '082abc4567' });
+    expect(result.success).toBe(false);
+  });
+
+  it('fails when customerPhone contains special characters', () => {
+    const result = createBookingSchema.safeParse({ ...validInput, customerPhone: '082-123-4567' });
+    expect(result.success).toBe(false);
+  });
+
+  it('fails when customerPhone has an invalid SA prefix', () => {
+    const result = createBookingSchema.safeParse({ ...validInput, customerPhone: '0901234567' });
+    expect(result.success).toBe(false);
+  });
+
+  it('fails when customerPhone is too short', () => {
+    const result = createBookingSchema.safeParse({ ...validInput, customerPhone: '082123' });
+    expect(result.success).toBe(false);
+  });
 });

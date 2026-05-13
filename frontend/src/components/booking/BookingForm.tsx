@@ -46,7 +46,7 @@ export function BookingForm({ onSubmit, isSubmitting, onBack }: BookingFormProps
         id="customerPhone"
         type="tel"
         label="Phone Number"
-        placeholder="e.g. 082 123 4567"
+        placeholder="e.g. 0821234567 or +27821234567"
         error={errors.customerPhone?.message}
         {...register('customerPhone')}
       />

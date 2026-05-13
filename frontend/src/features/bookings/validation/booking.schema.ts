@@ -8,8 +8,7 @@ export const bookingSchema = z.object({
   customerEmail: z.string().email('Please enter a valid email address'),
   customerPhone: z
     .string()
-    .min(10, 'Please enter a valid phone number')
-    .max(20, 'Phone number is too long'),
+    .regex(/^(\+27|0027|0)[6-8]\d{8}$/, 'Please enter a valid South African cell number (e.g. 0821234567 or +27821234567)'),
   notes: z.string().max(500, 'Notes cannot exceed 500 characters').optional(),
 });
 
